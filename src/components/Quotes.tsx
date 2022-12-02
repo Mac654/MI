@@ -59,7 +59,7 @@ const Quotes: React.FC<Props> = (props) => {
       setQuoteList(quoteList.map((el,idx)=>{
         return {...el, title: genderArray[idx].title}
       }))
-    }, [genderArray]);
+    }, [genderArray]);  
 
   return fetchingDataTime ? <div>fetching...</div> : (
     <div className="Quotes">
