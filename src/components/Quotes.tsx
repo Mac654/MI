@@ -16,7 +16,7 @@ interface Props {}
 
 const Quotes: React.FC<Props> = (props) => {
   const [quoteList, setQuoteList] = useState<QuoteAuthor[]>([]);
-  const [genderArray, setGenderArray] = useState<QuoteAuthor[]>([]);
+  
   const [fetchingDataTime, setFetchingDataTime] = useState(false)
 
   async function fetchData() {
@@ -31,35 +31,15 @@ const Quotes: React.FC<Props> = (props) => {
       )
     );
     const data2 = await data;
-    setGenderArray(data2);
-    setQuoteList(ids)
+    setQuoteList(ids.map((el:any,idx:number)=>{
+      return {...el, title: data2[idx].title}
+    }))
     setFetchingDataTime(false)
   }
+
   useEffect(() => {
     fetchData();
   }, []);
-  
-    // async function fetchData() fetches the info and sets the states on line 32 and 33
-    // However settings the states, can also be done in the useEffect hook below
-    // and once thats done we trigger the useEffect hook on line 54
-    // and add the title property to the quoteList state array elements
-    // For the last step i had to use the hint of "divide and conquer" just like Daenerys Targaryen did Rawr!
-
-  // useEffect(() => {
-  //   fetchData().then((data:any) => {
-  //     data[1].then((d:any) => {
-  //       setGenderArray(d);
-  //     });
-     
-  //     setQuoteList(data[0]);
-  //     });
-  //   }, []);
-
-    useEffect(() => {
-      setQuoteList(quoteList.map((el,idx)=>{
-        return {...el, title: genderArray[idx].title}
-      }))
-    }, [genderArray]);  
 
   return fetchingDataTime ? <div>fetching...</div> : (
     <div className="Quotes">
