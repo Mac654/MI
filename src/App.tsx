@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path={'/quotes'} element={<Quotes/>} />
+        <Route path={'/'} element={<Quotes/>} />
         <Route path={'/random-quote'} element={<RandomQuote/>}/>
       </Routes>
     </div>
