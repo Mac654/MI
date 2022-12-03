@@ -3,5 +3,5 @@ export interface QuoteAuthor {
     c: string,
     q: string,
     h: string,
-    title:string,
+    gender:string,
 }

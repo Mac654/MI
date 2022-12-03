@@ -20,16 +20,16 @@ const RandomQuote: React.FC<Props> = (props) => {
         <div className="RandomQuote" style={{height:'100vh',display:"flex",justifyContent:'center',alignItems:'center'}}>
             <div>
                 {randomQuote.map((el,idx)=>{
-                    return  <article key={`randomQuoteArticle-${idx}`}>
+                    return  <article key={`randomQuoteArticle-${idx}`} className="whiteColor">
                                 <blockquote>{el.q}</blockquote>
                                 -- {el.a}
                             </article>
                 })}
                 <div style={{marginTop:"3rem"}}>
-                <Button variant="contained" style={{marginRight:'3rem'}} onClick={()=>navigate(-1)}>
+                <Button variant="contained" style={{marginRight:'3rem'}} onClick={()=>navigate(-1)} >
                     Go Back to Quotes Page
                 </Button>
-                <Button variant="contained" onClick={()=>setToggleRandomQuote(!toggleRandomQuote)}>
+                <Button variant="contained" onClick={()=>setToggleRandomQuote(!toggleRandomQuote)} >
                     Get a random Quote
                 </Button>
                 </div>
