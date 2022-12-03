@@ -1,9 +1,15 @@
-import { Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import {  Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
-import Quotes from './components/Quotes';
-import RandomQuote from './components/RandomQuote';
+import Quotes from './pages/Quotes';
+import RandomQuote from './pages/RandomQuote';
 
 function App() {
+  const navigate = useNavigate()
+  useEffect(() => {
+    navigate('/quotes')
+  }, [])
+  
   return (
     <div className="App">
       <Routes>
